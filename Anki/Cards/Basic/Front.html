@@ -1,0 +1,19 @@
+<span class="tags">{{Tags}}</span>
+<br><br>
+{{Frente}}
+
+<script>
+        // Tags script
+        var tagsElement = document.querySelector('.tags');
+        if (tagsElement) {
+            var tagsText = tagsElement.textContent.trim();
+            var mainTag = tagsText.split('::')[0];
+            var secTag = tagsText.split('::')[1];
+            if(secTag == undefined){
+                tagsElement.textContent = mainTag;
+            }
+            else{
+                tagsElement.textContent = mainTag + " - " + secTag;
+            }
+    }
+</script>
