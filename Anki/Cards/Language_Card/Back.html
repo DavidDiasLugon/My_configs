@@ -1,0 +1,50 @@
+<span class="tags">{{Tags}}</span>
+<br><br>
+<div id="target-word" style="font-size:40px">{{Target Word}}{{Audio}}</div>
+
+<div class="phonology">{{Phonology}}</div>
+<br>
+<div data-jrp-generate>{{Sentence}}</div>
+
+<hr id=answer>
+<div class=title>Meaning</div><br>
+{{Meaning}}
+
+<br><br>
+
+{{Image}}
+
+<br><br>
+
+{{#Notes}}
+    <div class=title>Notes:</div>
+    {{Notes}}
+{{/Notes}}
+
+<script>
+    // Tags script
+    var tagsElement = document.querySelector('.tags');
+    if (tagsElement) {
+        var mainTag = tagsText.split('::')[0];
+        var secTag = tagsText.split('::')[1];
+        
+        if(secTag == undefined){
+            tagsElement.textContent = mainTag;
+        }
+        else{
+            tagsElement.textContent = mainTag + " " + secTag;
+        }
+    }
+
+    // Gender color
+    var targetWordElement = document.getElementById('target-word');
+    var targetWord = targetWordElement.textContent.trim();
+    
+    if (targetWord.endsWith(', die')) {
+        targetWordElement.style.color = '#f35e51';
+    } else if (targetWord.endsWith(', das')) {
+        targetWordElement.style.color = '#f3cb3b';
+    } else if (targetWord.endsWith(', der')) {
+        targetWordElement.style.color = '#22a0ce';
+    }
+</script>
