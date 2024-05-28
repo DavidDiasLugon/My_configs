@@ -1,0 +1,45 @@
+@import url("_editor_button_styles.css");
+
+.card {
+
+ font-family: EBGaramond;
+ font-size: 30px;
+ text-align: center;
+}
+
+.title {
+	font-family: EBGaramond, NotoSerifJP;
+	font-size: 15px;
+  text-align: center;
+  color: #BFBFBF;
+	text-transform: uppercase;
+}
+
+.tags{
+	font-family: EBGaramond, NotoSerifJP;
+	font-size: 15px;
+  text-align: center;
+  color: #BFBFBF;
+	text-transform: uppercase;
+	padding: 3px;
+	box-shadow: 2px 2px #696969;
+	border: solid #BFBFBF 0.25px;
+	border-radius: 2px
+}
+
+img {
+	border: 0.25px solid;
+  border-radius: 6px;
+	box-shadow: 2.5px 2.5px #696969;
+}
+
+/*You should include both font on your Anki folder with this exact name*/
+@font-face {
+  font-family: EBGaramond;
+  src: url("_EBGaramond.ttf");
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("_NotoSerif-Regular.ttf");
+}
