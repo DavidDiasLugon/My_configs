@@ -1,0 +1,34 @@
+<span class="tags">{{Tags}}</span>
+<br><br>
+<div id="target-word" style="font-size:40px">{{Target Word}}</div>
+<br>
+{{Sentence}}
+
+<script>
+    // Tags script
+    var tagsElement = document.querySelector('.tags');
+    if (tagsElement) {
+        var tagsText = tagsElement.textContent.trim();
+        var mainTag = tagsText.split('::')[0];
+        var secTag = tagsText.split('::')[1];
+
+        if(secTag == undefined){
+            tagsElement.textContent = mainTag;
+        }
+        else{
+            tagsElement.textContent = mainTag + " - " + secTag;
+        }
+    }
+
+    // Gender color
+    var targetWordElement = document.getElementById('target-word');
+    var targetWord = targetWordElement.textContent.trim();
+    
+    if (targetWord.endsWith(', die')) {
+        targetWordElement.style.color = '#f35e51';
+    } else if (targetWord.endsWith(', das')) {
+        targetWordElement.style.color = '#f3cb3b';
+    } else if (targetWord.endsWith(', der')) {
+        targetWordElement.style.color = '#22a0ce';
+    }
+</script>
