@@ -1,0 +1,70 @@
+.card {
+    font-family: EBGaramond, NotoSerifJP;
+    font-size: 22px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+.title {
+	font-family: EBGaramond, NotoSerifJP;
+	font-size: 15px;
+  text-align: center;
+  color: #BFBFBF;
+	text-transform: uppercase;
+}
+
+.tags{
+	font-family: EBGaramond, NotoSerifJP;
+	font-size: 15px;
+  text-align: center;
+  color: #BFBFBF;
+	text-transform: uppercase;
+	padding: 3px;
+	box-shadow: 2px 2px #696969;
+	border: solid #BFBFBF 0.25px;
+	border-radius: 2px
+}
+
+.phonology {
+	font-family: Libertine, NotoSerifJP;
+	font-size: 15px;
+  text-align: center;
+	font-style: italic;
+	color:#A9A9A9
+}
+
+.replay-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.replay-button svg circle {
+  fill: #A9A9A9;
+}
+.replay-button svg path {
+  stroke: #E5E4E2;
+  fill: #E5E4E2;
+}
+
+img {
+	border: 0.25px solid;
+  border-radius: 6px;
+	box-shadow: 2.5px 2.5px #696969;
+}
+
+/*All this font-families should be included on your Anki folder with this exact same name*/
+@font-face {
+	font-family: Libertine
+	src: url("_LinLibertine_R.ttf")
+}
+
+@font-face {
+  font-family: EBGaramond;
+  src: url("_EBGaramond.ttf");
+}
+
+@font-face {
+  font-family: NotoSerifJP;
+  src: url("_NotoSerifJP.ttf");
+}
