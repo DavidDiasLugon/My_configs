@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:mononoki 8
+font pango:Ubuntu 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id 'wezterm'
 
 # kill focused window
 bindsym $mod+q kill
@@ -197,29 +197,28 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+x exec i3lock 
 
 # Borders
-default_border none
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 2
 
 # Colors
 
 # class                 border  bground text    indicator child_border
-client.focused          #98809E #7C7489 #FFFFFF #B38AB7   #765C77
-client.focused_inactive #333333 #574C5B #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #AC3A3C #FF6C6C #FFFFFF #560000   #560000
+client.focused          #D79921 #1D2021 #FFFFFF #A89984   #A89984
+client.focused_inactive #D79921 #282828 #FFFFFF #A89984   #A89984
+client.unfocused        #928374 #282828 #888888 #7C6F64   #7C6F64
+client.urgent           #FB4934 #FF6C6C #FFFFFF #560000   #560000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-
 client.background       #FFFFFF
-
 
 # Gaps
 gaps inner 6
-gaps outer 6
+gaps outer 3
 
 ## Keyboard
-exec "setxkbmap -layout br,de"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec --no-startup-id "setxkbmap -layout br -option 'grp:alt_shift_toggle'"
 
+## Bluetooth
+bindsym $mod+b exec --no-startup-id blueman-manager
 
 ## Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
@@ -229,13 +228,11 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png 
 
 # Start-up
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop 12 "libinput Tapping Enabled" 1
 exec --no-startup-id picom
-exec --no-startup-id i3-battery-popup
 exec --no-startup-id syncthing-gtk -m9
-exec --no-startup-id fcitx5 -d
-exec_always feh --bg-scale /home/daviddias/Documents/Wallpapers/Bierstadt_-_Among_the_Sierra_Nevada_Mountains_-_1868.jpg
-exec_always ~/.config/polybar/launch.sh 
+exec_always --no-startup-id feh --bg-scale ~/Documents/Wallpapers/el-rio-de-luz.jpg
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
